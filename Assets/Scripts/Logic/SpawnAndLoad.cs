@@ -9,7 +9,6 @@ public class SpawnAndLoad : MonoBehaviour
     [Tooltip("Контейнер-родитель точек спавна")]
     [SerializeField] private Transform _spawnSpotsPath;
 
-
     private GameObject _containerForControl; //Необходимо для управления объектом, его спавном, удалением и т.д.
     private GameObject[] _loadedLettersOrDigits;
     private int _countSpawnedObjects = 0;
@@ -18,19 +17,18 @@ public class SpawnAndLoad : MonoBehaviour
 
     //Для выполнения корутин после победы
     [Tooltip("Congratulations GameObject")]
-    [SerializeField] private GameObject _congratTest;
+    [SerializeField] private GameObject _congratObj;
     private Congratulations _myCongratulations;
 
     [Tooltip("WinLevel GameObject")]
-    [SerializeField] private GameObject _winPanelTest;
+    [SerializeField] private GameObject _winPanelObj;
     private WinningPanel _myWinPanel;
-    
 
 
     private void Start()
     {
-        _myCongratulations = _congratTest.GetComponent<Congratulations>();
-        _myWinPanel = _winPanelTest.GetComponent<WinningPanel>(); 
+        _myCongratulations = _congratObj.GetComponent<Congratulations>();
+        _myWinPanel = _winPanelObj.GetComponent<WinningPanel>(); 
 
         LoadChoosenMode(PlayerPrefs.GetString("Language"), PlayerPrefs.GetString("Mode"));
         SpawnLetters();
@@ -55,7 +53,7 @@ public class SpawnAndLoad : MonoBehaviour
             _containerForControl = Instantiate(_loadedLettersOrDigits[_countSpawnedObjects]); // спавнит первый объект
             _countSpawnedObjects += 1;
 
-            _containerForControl.transform.position = _spawnSpots[_countSpawners].position; // Присвоить координаты точки спавна
+            _containerForControl.transform.position = _spawnSpots[_countSpawners].position; // Присвоить координаты точки спавна      
 
             //Чтобы не спавнились дважды на одной позиции
             if (_countSpawners != RandomCountSpawners)
@@ -84,7 +82,7 @@ public class SpawnAndLoad : MonoBehaviour
         if (mode == "Digits")
         {
             _loadedLettersOrDigits = Resources.LoadAll<GameObject>($"Digits/Digits/{language}");
-            SelectionSortDigits(_loadedLettersOrDigits);
+            SelectionSortDigits(_loadedLettersOrDigits);           
         }
         else
         {
@@ -119,13 +117,24 @@ public class SpawnAndLoad : MonoBehaviour
         }
     }
 
+    /*private void CreateArrOfSounds()
+    {
+        for (int i = 0; i < _loadedLettersOrDigits.Length; i++)
+        {
+            _soundsOfloadedObj[i] = _loadedLettersOrDigits[i].GetComponent<AudioSource>();
+            _soundsOfloadedObj[i].Play();
+        }
+    }*/
+
+
     //Чит на ПКМ на победу для теста
     private void Update()
     {
         if (Input.GetMouseButtonDown(1))
-        { 
+        {
             StartCoroutine(_myCongratulations.ShowCongratText());
             StartCoroutine(_myWinPanel.OpenWinPanel());
+            //_testSound.Play();
         }
     }
 }

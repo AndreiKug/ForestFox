@@ -17,6 +17,8 @@ public class WinningPanel : MonoBehaviour
     private string _mode;
     private string[] _spawnTextContainer;
 
+    private SoundsCatch _mySoundsCatch;
+
     private void OnEnable()
     {
         StartCoroutine(SpawnText());
@@ -26,6 +28,9 @@ public class WinningPanel : MonoBehaviour
     {
         _language = PlayerPrefs.GetString("Language");
         _mode = PlayerPrefs.GetString("Mode");
+
+        GameObject soundsClass = GameObject.Find("ScriptHandler");
+        _mySoundsCatch = soundsClass.GetComponent<SoundsCatch>();
 
         LoadWinningText();
     }
@@ -69,7 +74,8 @@ public class WinningPanel : MonoBehaviour
         for (int i = 0; i < _spawnTextContainer.Length; i++)
         {
             _winLevelText.text += _spawnTextContainer[i];
-            yield return new WaitForSeconds(0.5f);
+            _mySoundsCatch.SoundsFromLetters[i].Play();
+            yield return new WaitForSeconds(1f);
         }        
     }
 

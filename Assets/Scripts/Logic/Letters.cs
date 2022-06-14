@@ -5,6 +5,7 @@ using UnityEngine;
 public class Letters : MonoBehaviour
 {
     private SpawnAndLoad _mySpawn;
+    private SoundsCatch _mySounds;
 
     private AudioSource _sound;
     private BoxCollider _collider;
@@ -15,10 +16,11 @@ public class Letters : MonoBehaviour
         GameObject spawnClass = GameObject.Find("ScriptHandler");
         _mySpawn = spawnClass.GetComponent<SpawnAndLoad>();
 
+        _mySounds = spawnClass.GetComponent<SoundsCatch>();
+
         _sound = gameObject.GetComponent<AudioSource>();
         _collider = gameObject.GetComponent<BoxCollider>();
         _mesh = gameObject.GetComponent<MeshRenderer>();
-
     }
 
     //Т.к. удаленный объект не может воспроизвести звук, сначала скрываем и воспроизводим звук, и через 1f sec удаляем
@@ -26,10 +28,12 @@ public class Letters : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            _mySounds.SoundsFromLetters.Add(_sound);
+
             _sound.Play();
             _collider.enabled = false;
             _mesh.enabled = false;
-            Destroy(gameObject, 1f);
+            //Destroy(gameObject, 1f);
 
             _mySpawn.SpawnLetters();
 

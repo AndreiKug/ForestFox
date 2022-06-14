@@ -80,7 +80,7 @@ public class DropDownMenu : MonoBehaviour
                 case 4: // French
                     _startButton.text = "DÉMARRER";
                     _exitButton.text = "SORTIR";
-                    _audioSlider.text = "l'audio";
+                    _audioSlider.text = "Audio";
                     _musicSlider.text = "Musique";
                     _chooseMode.text = "Choisissez le mode";                    
                     _dropDownMenuText.text = "Langue";
