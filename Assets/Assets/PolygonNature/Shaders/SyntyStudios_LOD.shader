@@ -60,7 +60,7 @@ Shader "SyntyStudios/LOD"
 		ENDCG
 	}
 	Fallback "Diffuse"
-	CustomEditor "ASEMaterialInspector"
+
 }
 /*ASEBEGIN
 Version=16200

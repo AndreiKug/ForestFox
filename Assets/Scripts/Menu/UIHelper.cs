@@ -5,7 +5,7 @@ public class UIHelper : MonoBehaviour
 {
     public void StartLevel()
     {
-        SceneManager.LoadScene("Scene_1");  
+        SceneManager.LoadScene("Scene_1_HQ");  
     }
 
     public void QuitGame()

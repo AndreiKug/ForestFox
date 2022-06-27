@@ -17,11 +17,10 @@ public class LookAtCamera : MonoBehaviour
 
 
         if (_distance < 15f)
-        {
-            transform.LookAt(_positionOfPlayer); // чтобы при близком спавне к игроку LookAt сработал 1 раз на позицию лисы
-            transform.Rotate(0, 0, 0);
-        }
-            
+        { 
+            // чтобы при близком спавне к игроку LookAt сработал 1 раз на позицию лисы
+            transform.LookAt(new Vector3(_positionOfPlayer.transform.position.x, this.transform.position.y, _positionOfPlayer.transform.position.z));
+        }         
     }
 
 
@@ -31,14 +30,8 @@ public class LookAtCamera : MonoBehaviour
 
         if (_distance > 15f)
         {
-            transform.LookAt(_positionOfCamera);
-        } 
-        /*else if (_distance > 10f || _distance < 15f)
-        {
-            //transform.Rotate(0, 0, 0);
-            transform.LookAt(_positionOfPlayer);
-        }*/
-        
+            transform.LookAt(new Vector3(_positionOfCamera.transform.position.x, this.transform.position.y, _positionOfCamera.transform.position.z));
+        }         
     }
 
     private void OnBecameVisible()
