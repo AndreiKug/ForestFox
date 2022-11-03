@@ -30,6 +30,7 @@ public class Letters : MonoBehaviour
         {
             _mySounds.SoundsFromLetters.Add(_sound);
 
+            _sound.volume = PlayerPrefs.GetFloat("AudioVolume");
             _sound.Play();
             _collider.enabled = false;
             _mesh.enabled = false;

@@ -3267,6 +3267,7 @@ GameObject:
   - component: {fileID: 441259154}
   - component: {fileID: 441259155}
   - component: {fileID: 441259156}
+  - component: {fileID: 441259157}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3402,8 +3403,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2bc4c1fd5aae6e44b68ec99424a6087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSlider: {fileID: 1031687528}
   _musicSlider: {fileID: 356767973}
+--- !u!114 &441259157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441259149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404cff30b8c7797458844d226f68c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSlider: {fileID: 1031687528}
 --- !u!1001 &441270878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10296,9 +10309,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 441259156}
-        m_TargetAssemblyTypeName: SliderValue, Assembly-CSharp
-        m_MethodName: SetSliderValue
+      - m_Target: {fileID: 441259157}
+        m_TargetAssemblyTypeName: AudioSliderMenu, Assembly-CSharp
+        m_MethodName: SetAudioSliderValue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

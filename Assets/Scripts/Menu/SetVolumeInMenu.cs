@@ -5,12 +5,12 @@ using UnityEngine;
 public class SetVolumeInMenu : MonoBehaviour
 {
     private AudioSource _music;
-
     
     private void Start()
     {
         _music = GetComponent<AudioSource>();
         _music.volume = PlayerPrefs.GetFloat("MusicVolume");
+        
     }
 
     public void SetMusicVolume()

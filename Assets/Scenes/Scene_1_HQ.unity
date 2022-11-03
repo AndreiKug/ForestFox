@@ -3536,7 +3536,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fb87686c53fbcc24a867e24f6b622498, type: 2}
+  - {fileID: 2100000, guid: a35e8e5d044c2034c9b49745fc5a0d77, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12527,6 +12527,8 @@ GameObject:
   - component: {fileID: 1293467145}
   - component: {fileID: 1293467144}
   - component: {fileID: 1293467146}
+  - component: {fileID: 1293467147}
+  - component: {fileID: 1293467148}
   m_Layer: 0
   m_Name: ScriptHandler
   m_TagString: Untagged
@@ -12576,6 +12578,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundsFromLetters: []
+--- !u!114 &1293467147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293467143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404cff30b8c7797458844d226f68c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSlider: {fileID: 1389269084}
+--- !u!114 &1293467148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293467143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df47302bca9e194b8ebf5c550c57a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSlider: {fileID: 1389269084}
+  _musicSlider: {fileID: 739621224}
 --- !u!1 &1293472705
 GameObject:
   m_ObjectHideFlags: 0
@@ -13600,9 +13629,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1373080879}
-        m_TargetAssemblyTypeName: SettingsInGame, Assembly-CSharp
-        m_MethodName: SetSliderValue
+      - m_Target: {fileID: 1293467147}
+        m_TargetAssemblyTypeName: AudioSliderMenu, Assembly-CSharp
+        m_MethodName: SetAudioSliderValue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
